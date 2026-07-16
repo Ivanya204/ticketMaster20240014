@@ -20,7 +20,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.use(cookieParser); app.use(express.json())
+app.use(cookieParser()); app.use(express.json())
 
 app.use("/api/loginAdmin", loginAdminController)
 app.use("/api/loginClient", loginClientController)
