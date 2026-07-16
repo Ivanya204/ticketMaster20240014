@@ -17,7 +17,7 @@ wompiController.generarToken = async (req, res) =>{
         })
         if(!response.ok){
             const error = await response.text()
-            return res.status(500).json({message: "Internal server error"})
+            return res.status(500).json({message: "Internal server error"+ error})
         }
         const data = await response.json()
         return res.status(200).json({message:"Generacion de token exitoso"+ data})
@@ -39,10 +39,10 @@ wompiController.paymentTest = async (req, res) =>{
         )
         if(!response.ok){
             const error = await response.text()
-            return res.status(500).json({message: "Internal server error"})
+            return res.status(500).json({message: "Internal server error" + error})
         }
         const data = await response.json()
-        return res.status(200).json({message:"Pago exitoso"})
+        return res.status(200).json({message:"Pago exitoso"+ data})
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: "Internal server error "})
