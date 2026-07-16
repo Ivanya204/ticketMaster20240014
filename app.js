@@ -1,15 +1,15 @@
 import express from "express"
-import loginAdminController from "./src/controller/loginAdminsController.js"
-import loginClientController from "./src/controller/loginClientsController.js"
+import loginAdminController from "./src/routes/loginAdmin.js"
+import loginClientController from "./src/routes/loginClients.js"
 
-import logout from "./src/controller/logout.js"
+import logout from "./src/routes/logout.js"
 
-import registerAdminController from "./src/controller/registerAdminsController.js"
-import registerClientsController from "./src/controller/registerClientsController.js"
+import registerAdminController from "./src/routes/registerAdmin.js"
+import registerClientsController from "./src/routes/registerClients.js"
 
-import ticketsController from "./src/controller/ticketsController.js"
+import ticketsController from "./src/routes/tickets.js"
 
-import wompiController from "./src/controller/wompiController.js"
+import wompiController from "./src/routes/wompi.js"
 
 import cookieParser from "cookie-parser"
 import cors from "cors"
