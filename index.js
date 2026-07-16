@@ -1,4 +1,4 @@
-import app from "../backend/app.js"
+import app from "./app.js"
 import "./database.js"
 
 async function main() {

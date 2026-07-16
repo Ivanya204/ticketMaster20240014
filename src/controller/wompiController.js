@@ -20,7 +20,7 @@ wompiController.generarToken = async (req, res) =>{
             return res.status(500).json({message: "Internal server error"})
         }
         const data = await response.json()
-        return res.status(200).json({message:"Generacion de token exitoso"})
+        return res.status(200).json({message:"Generacion de token exitoso"+ data})
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: "Internal server error "})

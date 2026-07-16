@@ -1,7 +1,7 @@
 import nodemailer  from "nodemailer"
 import crypto from "crypto"
 import jsonwebtoken from "jsonwebtoken"
-import bcrypt from "bcryptjs"
+import bcryptjs from "bcryptjs"
 
 import adminModel from "../models/admins.js"
 import {config} from "../../config.js"
@@ -16,7 +16,7 @@ registerAdminController.register = async (req, res) =>{
         if(exitsAdmin){
             return res.status(400).json({message: "la cuenta ya existe"})
         }
-        const passwordHash = await bcrypt.hash(password, 10)
+        const passwordHash = await bcryptjs.hash(password, 10)
         const verificationCode = crypto.randomBytes(3).toString("hex")
 
         const tokenCode = jsonwebtoken.sign(
