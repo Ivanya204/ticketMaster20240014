@@ -7,11 +7,12 @@ wompiController.generarToken = async (req, res) =>{
     try {
         const response = await fetch ("https://id.wompi.sv/connect/token", {
             method: "POST",
-            headers:{ "Content-Type": "application/x-www-urlencoded",},
+            headers:{ "Content-Type": "application/x-www-form-urlencoded",},
             body: new URLSearchParams({
                 grant_type: config.wompi.grant_type,
                 audience: config.wompi.audience,
-                client_id: config.wompi.client_secret
+                client_id: config.wompi.client_id,
+                client_secret: config.wompi.client_secret
             })
         })
         if(!response.ok){
@@ -32,8 +33,8 @@ wompiController.paymentTest = async (req, res) =>{
         const response = await fetch("https://id.wompi.sv/connect/TransaccionCompra/TokenizadaSin3DS",{
             method: "POST",
             headers: {"Content-Type": "application/json",
-            Authorization: `Bearer.${token}`},
-            body: JSON.stringify.apply(formData),
+            Authorization: `Bearer ${token}`},
+            body: JSON.stringify(formData),
         },
         )
         if(!response.ok){

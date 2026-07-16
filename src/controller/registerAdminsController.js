@@ -14,7 +14,7 @@ registerAdminController.register = async (req, res) =>{
     try {
         const exitsAdmin = await adminModel.findOne({email})
         if(exitsAdmin){
-            return res.status(400).json({message: "cuenta no encontrada"})
+            return res.status(400).json({message: "la cuenta ya existe"})
         }
         const passwordHash = await bcrypt.hash(password, 10)
         const verificationCode = crypto.randomBytes(3).toString("hex")
@@ -73,7 +73,7 @@ registerAdminController.verifyCode = async (req, res)=>{
         admin.isVerified = true
         await admin.save()
         res.clearCookie("verificationToken")
-        res.json({message: "Internal server error"})
+        res.json({message: "Cuenta verificada con exito"})
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: "Internal server error "})

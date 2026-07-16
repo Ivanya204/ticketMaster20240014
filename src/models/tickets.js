@@ -13,4 +13,4 @@ const ticketsSchema = new Schema({
     strict: false
 })
 
-export default model ("Clients", clientsSchema)
+export default model ("Tickets", ticketsSchema)

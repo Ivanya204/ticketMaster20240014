@@ -19,7 +19,7 @@ loginAdminController.login = async (req, res) =>{
 
         const isMatch = await bcrypt.compare (password, userFound.password)
 
-        if(isMatch){
+        if(!isMatch){
             userFound.loginAttempts = (userFound.loginAttempts || 0)+1
             if(userFound.loginAttempts >= 5){
                 userFound.timeOut = Date.now() +15*60*1000
@@ -41,7 +41,7 @@ loginAdminController.login = async (req, res) =>{
             {expiresIn: "15d"}
         )
 
-        res.cookue ("authCookie", token)
+        res.cookie ("authCookie", token)
         return res.status(200).json({message : "Inicio de sesión exitoso"})
     } catch (error) {
         console.log(error)
