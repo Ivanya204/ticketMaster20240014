@@ -1,0 +1,21 @@
+import dotenv from "dotenv"
+
+dotenv.config()
+export const config ={
+    db: {
+        URI: process.env.BD_URI
+    },
+    JWT: {
+        secret: process.env.JWT_Secret_key
+    },
+    email: {
+        user_email : process.env.USER_EMAIL,
+        user_password : process.env.USER_PASSWORD
+    },
+    wompi:{
+        client_id : process.env.CLIENT_ID,
+        client_secret : process.env.CLIENT_SECRET,
+        grant_type : process.env.GRANT_TYPE,
+        audience: process.env.AUDIENCE
+    }
+}

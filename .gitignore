@@ -1,0 +1,4 @@
+/backend/.env
+  .env
+  *.envgit
+  node_modules
